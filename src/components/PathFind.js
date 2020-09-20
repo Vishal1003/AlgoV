@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Node from './Node';
 import Astar from '../aStarAlgorithm/aStar'
 import "./PathFind.css";
+import Navbar from './Navbar/Navbar';
+import Footer from './Footer/Footer';
 
-const cols = 15;
-const rows = 10;
+const cols = 13;
+const rows = 8;
 
 
 const NODE_START_ROW = 0;
@@ -41,7 +43,7 @@ export default function PathFind() {
         this.nbrs = [];
         this.isWall = false;
 
-        if(Math.random(1) < 0.2){
+        if (Math.random(1) < 0.2) {
             this.isWall = true;
         }
 
@@ -123,35 +125,55 @@ export default function PathFind() {
     )
 
     const animateShortestPath = (shortestPathNodes) => {
-        for(let i=0; i<shortestPathNodes.length; i++){
+        for (let i = 0; i < shortestPathNodes.length; i++) {
             setTimeout(() => {
                 const node = shortestPathNodes[i];
                 document.getElementById(`node-${node.x}-${node.y}`).className = "node node-shortest-path";
-            }, 10*i)
+            }, 10 * i)
         }
     }
 
     const visualizePath = () => {
-        for(let i=0; i<= VisitedNodes.length; i++){
-            if(i === VisitedNodes.length ){
+        for (let i = 0; i <= VisitedNodes.length; i++) {
+            if (i === VisitedNodes.length) {
                 setTimeout(() => {
                     animateShortestPath(Path);
-                }, 20*i)
+                }, 20 * i)
             }
             else {
                 setTimeout(() => {
                     const node = VisitedNodes[i];
                     document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited";
-                }, 10*i)
+                }, 10 * i)
             }
         }
     }
 
+
     return (
-        <div className="wrapper">
-            <h1 style={{padding:"50px"}}>Path Finding Visualizer</h1>
-            <button onClick={visualizePath}>Visualize Path</button>
-            {gridWithNodes}
+        <div>
+            <Navbar />
+            <div className="wrapper">
+                <h1 style={{ paddingTop: "20px" }}>A* Path Finding Visualizer</h1>
+                <p id="rcorners1">
+                    A * algorithm is a searching algorithm that searches for the shortest path between the initial and the final state. It is used in various applications, such as maps.
+                    In maps the A* algorithm is used to calculate the shortest distance between the source (initial state) and the destination (final state).
+                </p>
+                <button onClick={visualizePath}>
+                    Visualize Path
+                </button>
+                <div style={{ paddingBottom: "50px" }}>
+                    {gridWithNodes}
+                </div>
+
+                <div style={{ paddingBottom: "30px" }}>
+                    <p id="rcorners1">
+                        The way that the algorithm makes its decisions is by taking the <span style={{color: "darkblue"}}>f-value</span> into account. The algorithm selects the <span style={{color: "darkblue"}}>smallest f-valued cell</span> and moves to that cell. This process continues until the algorithm reaches its goal cell.
+                </p>
+                </div>
+            </div>
+
+            <Footer />
         </div>
     )
 }

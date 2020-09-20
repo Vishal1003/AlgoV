@@ -6,3 +6,31 @@
 .rowWrapper {
     display: flex;
 }
+
+button {
+    margin: 30px;
+    margin-left: 0;
+    font-size: 18px;
+    height: 65px;
+    width: 250px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 1px 1px 0px 2px rgba (0, 0, 0, 0.3);
+    background: #15361c;
+    cursor: pointer;
+    color: white;
+  }
+
+  button:hover {
+    box-shadow: 0 0 2rem gray;
+  }
+
+  #rcorners1 {
+    border-radius: 25px;
+    border: 2px solid rgb(255, 165, 0);
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    font-size: x-large;
+}
+
