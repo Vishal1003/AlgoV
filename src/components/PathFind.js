@@ -155,10 +155,12 @@ export default function PathFind() {
             <Navbar />
             <div className="wrapper">
                 <h1 style={{ paddingTop: "20px" }}>A* Path Finding Visualizer</h1>
-                <p id="rcorners1">
-                    A * algorithm is a searching algorithm that searches for the shortest path between the initial and the final state. It is used in various applications, such as maps.
-                    In maps the A* algorithm is used to calculate the shortest distance between the source (initial state) and the destination (final state).
+                <div style={{ paddingRight: "30px" }}>
+                    <p id="rcorners1">
+                        A * algorithm is a searching algorithm that searches for the shortest path between the initial and the final state. It is used in various applications, such as maps.
+                        In maps the A* algorithm is used to calculate the shortest distance between the source (initial state) and the destination (final state).
                 </p>
+                </div>
                 <button onClick={visualizePath}>
                     Visualize Path
                 </button>
@@ -166,9 +168,9 @@ export default function PathFind() {
                     {gridWithNodes}
                 </div>
 
-                <div style={{ paddingBottom: "30px" }}>
+                <div style={{ paddingBottom: "30px", paddingRight: "30px" }}>
                     <p id="rcorners1">
-                        The way that the algorithm makes its decisions is by taking the <span style={{color: "darkblue"}}>f-value</span> into account. The algorithm selects the <span style={{color: "darkblue"}}>smallest f-valued cell</span> and moves to that cell. This process continues until the algorithm reaches its goal cell.
+                        The way that the algorithm makes its decisions is by taking the <span style={{ color: "darkblue" }}>f-value</span> into account. The algorithm selects the <span style={{ color: "darkblue" }}>smallest f-valued cell</span> and moves to that cell. This process continues until the algorithm reaches its goal cell.
                 </p>
                 </div>
             </div>
